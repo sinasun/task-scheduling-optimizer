@@ -29,6 +29,9 @@ public class Scheduler {
 		}
 
 		employeeScheduledTasks.get(employee).add(scheduledTask);
+
+        int taskDuration = endTime - startTime;
+        employee.fillHours(taskDuration);
 	}
 
 	public void generateOutputScheduleFile(String outputFilePath) {
@@ -70,5 +73,24 @@ public class Scheduler {
 		}
 		return unscheduledTasks;
 	}
+
+    public Employee findFirstAvailableEmployeeForJobType(String jobType) {
+        Employee firstAvailableEmployee = null;
+        int minFreeDay = Integer.MAX_VALUE;
+        int maxFreeHours = Integer.MIN_VALUE;
+
+        for (Employee employee : employees) {
+            if (employee.getEmployeeType().equals(jobType)) {
+                if (employee.getFirstFreeDay() < minFreeDay
+                        || (employee.getFirstFreeDay() == minFreeDay && employee.getFreeHoursInCurrentDay() > maxFreeHours)) {
+                    firstAvailableEmployee = employee;
+                    minFreeDay = employee.getFirstFreeDay();
+                    maxFreeHours = employee.getFreeHoursInCurrentDay();
+                }
+            }
+        }
+
+        return firstAvailableEmployee;
+    }
 }
 
