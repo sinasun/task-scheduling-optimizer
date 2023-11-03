@@ -9,7 +9,7 @@ public class Task {
     private String priorityLevel;
     private int dueDate;
 
-    public Task(int taskID, String taskName, String employeeType, int productionTime, String taskDependencies, String priorityLevel, String dueDate) {
+    public Task(int taskID, String taskName, String employeeType, int productionTime, String taskDependencies, String priorityLevel, int dueDate) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.employeeType = employeeType;
