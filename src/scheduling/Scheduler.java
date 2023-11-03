@@ -41,6 +41,11 @@ public class Scheduler {
 
 		employeeScheduledTasks.get(employee).add(scheduledTask);
 
+		// remove from dependencies of other tasks
+    	for (Task t : tasks) {
+        	t.getTaskDependencies().removeIf(depTask -> depTask.equals(task));
+    	}
+
         int taskDuration = endTime - startTime;
         employee.fillHours(taskDuration);
 	}
