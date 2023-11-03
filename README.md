@@ -2,6 +2,17 @@
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Scheduling Algorithms](#scheduling-algorithms)
+- [Getting Started](#getting-started)
+- [Dependencies](#dependencies)
+- [License](#license)
+
+## Overview
+
 Optimize your production scheduling with precision and efficiency. Our Production Scheduling Optimizer is a Java-based project that empowers you to streamline resource allocation, minimize production time, and meet deadlines with ease.
 
 ## Features
@@ -11,6 +22,12 @@ Optimize your production scheduling with precision and efficiency. Our Productio
 - **Task Progress Tracking**: Monitor task progress, dependencies, and priority levels in real-time.
 - **Performance Evaluation**: Assess schedule performance, ensuring tasks meet due dates.
 - **Output Generation**: Create output schedule files for sharing and in-depth analysis.
+
+- [ ] Implement and document the Genetic Algorithms.
+- [ ] Implement and document the Simulated Annealing algorithm.
+- [ ] Implement and document the Ant Colony Optimization algorithm.
+- [ ] Implement and document the Greedy Algorithms.
+- [ ] Implement and document the Integer Linear Programming (ILP) approach.
 
 ## Scheduling Algorithms
 
@@ -33,10 +50,6 @@ Choose the algorithm that best fits your production scheduling needs and witness
 ## Dependencies
 
 - Java (JDK 8+)
-
-## Contributors
-
-- [Sina Khodaveisi]
 
 ## License
 
