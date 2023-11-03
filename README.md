@@ -23,6 +23,8 @@ Optimize your production scheduling with precision and efficiency. Our Productio
 - **Performance Evaluation**: Assess schedule performance, ensuring tasks meet due dates.
 - **Output Generation**: Create output schedule files for sharing and in-depth analysis.
 
+### To-Do List for Features
+
 - [ ] Implement and document the Genetic Algorithms.
 - [ ] Implement and document the Simulated Annealing algorithm.
 - [ ] Implement and document the Ant Colony Optimization algorithm.
