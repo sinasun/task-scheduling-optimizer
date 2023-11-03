@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import employees.Employee;
+import scheduling.*;
+import scheduling.algorithm.PriorityDueDateSchedulingAlgorithm;
+import scheduling.SchedulingAlgorithm;
 import tasks.Task;
 
 public class Main {
@@ -19,14 +22,24 @@ public class Main {
         while (!exit) {
             System.out.println("Scheduling Algorithms Menu:");
             System.out.println("1. Apply Algorithm");
-            System.out.println("2. Exit");
+            System.out.println("2. Save to File");
+            System.out.println("3. Exit");
 
             int choice = getInt(scanner, "Enter your choice: ", 1, 3); 
 
             switch (choice) {
                 case 1:
+                    SchedulingAlgorithm algorithm = new PriorityDueDateSchedulingAlgorithm(scheduler);
+                    algorithm.applyAlgorithm();
+
+                    System.out.println("Algorithm applied. Tasks scheduled.");
                     break;
                 case 2:
+                    String outputFilePath = getString(scanner, "Enter the output file path: ");
+                    scheduler.generateOutputScheduleFile(outputFilePath);
+                    System.out.println("Results saved to file: " + outputFilePath);
+                    break;
+                case 3:
                     exit = true;
                     break;
             }
@@ -42,7 +55,7 @@ public class Main {
 			taskReader.readLine();
             while ((line = taskReader.readLine()) != null) {
                 String[] data = line.split(",");
-                Task task = new Task(Integer.parseInt(data[0]), data[1], data[2], Integer.parseInt(data[3]), data[4], data[5], Integer.parseInt(data[6]));
+                Task task = new Task(Integer.parseInt(data[0]), data[1], data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]));
                 tasks.add(task);
             }
         } catch (IOException e) {
@@ -55,7 +68,7 @@ public class Main {
 			employeeReader.readLine();
             while ((line = employeeReader.readLine()) != null) {
                 String[] data = line.split(",");
-                Employee employee = new Employee(Integer.parseInt(data[0]), data[1], data[2], Integer.parseInt(data[3]));
+                Employee employee = new Employee(Integer.parseInt(data[0]), data[1], data[2], Integer.parseInt(data[3]), 0);
                 employees.add(employee);
             }
         } catch (IOException e) {
@@ -91,4 +104,9 @@ public class Main {
 		return value;
 
 	}
+
+    private static String getString(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        return scanner.next();
+    }
 }

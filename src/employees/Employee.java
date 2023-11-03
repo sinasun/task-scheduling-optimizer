@@ -8,13 +8,13 @@ public class Employee {
     private int firstFreeDay;
     private int freeHoursInCurrentDay;
 
-    public Employee(int employeeID, String employeeName, String employeeType, int hoursPerDay, int firstFreeDay, int freeHoursInCurrentDay) {
+    public Employee(int employeeID, String employeeName, String employeeType, int hoursPerDay, int firstFreeDay) {
         this.employeeID = employeeID;
         this.employeeName = employeeName;
         this.employeeType = employeeType;
         this.hoursPerDay = hoursPerDay;
         this.firstFreeDay = firstFreeDay;
-        this.freeHoursInCurrentDay = freeHoursInCurrentDay;
+        this.freeHoursInCurrentDay = hoursPerDay;
     }
 
     public int getEmployeeID() {

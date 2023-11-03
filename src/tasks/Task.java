@@ -5,11 +5,11 @@ public class Task {
     private String taskName;
     private String employeeType;
     private int productionTime;
-    private String taskDependencies;
-    private String priorityLevel;
+    private int taskDependencies;
+    private int priorityLevel;
     private int dueDate;
 
-    public Task(int taskID, String taskName, String employeeType, int productionTime, String taskDependencies, String priorityLevel, int dueDate) {
+    public Task(int taskID, String taskName, String employeeType, int productionTime, int taskDependencies, int priorityLevel, int dueDate) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.employeeType = employeeType;
@@ -35,11 +35,11 @@ public class Task {
         return productionTime;
     }
 
-    public String getTaskDependencies() {
+    public int getTaskDependencies() {
         return taskDependencies;
     }
 
-    public String getPriorityLevel() {
+    public int getPriorityLevel() {
         return priorityLevel;
     }
 
@@ -63,11 +63,11 @@ public class Task {
         this.productionTime = productionTime;
     }
 
-    public void setTaskDependencies(String taskDependencies) {
+    public void setTaskDependencies(int taskDependencies) {
         this.taskDependencies = taskDependencies;
     }
 
-    public void setPriorityLevel(String priorityLevel) {
+    public void setPriorityLevel(int priorityLevel) {
         this.priorityLevel = priorityLevel;
     }
 
