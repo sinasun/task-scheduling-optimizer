@@ -21,8 +21,7 @@ public class Main {
             System.out.println("1. Apply Algorithm");
             System.out.println("2. Exit");
 
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = getInt(scanner, "Enter your choice: ", 1, 3); 
 
             switch (choice) {
                 case 1:
@@ -30,8 +29,6 @@ public class Main {
                 case 2:
                     exit = true;
                     break;
-                default:
-                    System.out.println("Invalid choice. Please select a valid option.");
             }
         }
 
@@ -65,4 +62,33 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+	public static int getInt(Scanner input, String prompt, int min, int max) {
+		boolean isInputBad = true;
+		boolean hasNextInt;
+		int value = 0;
+
+		while (isInputBad) {
+			System.out.print(prompt);
+
+			hasNextInt = input.hasNextInt();
+			if (hasNextInt) {
+				value = input.nextInt();
+				if (value >= min && value <= max) {
+
+					isInputBad = false; // break out of loop
+
+				} else {
+					System.out.println("Please select a number in the range");
+
+				}
+			} else {
+				System.out.println("Please enter an integer");
+			}
+			input.nextLine(); // clean up input stream
+		}
+
+		return value;
+
+	}
 }
