@@ -6,7 +6,6 @@
 
 - [Overview](#overview)
 - [Features](#features)
-- [Scheduling Algorithms](#scheduling-algorithms)
 - [Getting Started](#getting-started)
 - [Dependencies](#dependencies)
 - [License](#license)
