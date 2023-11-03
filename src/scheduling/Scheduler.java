@@ -21,6 +21,17 @@ public class Scheduler {
 		this.employeeScheduledTasks = new HashMap<>();
 	}
 
+    public ScheduledTask getTaskById(int taskId) {
+        for (ArrayList<ScheduledTask> scheduledTasks : employeeScheduledTasks.values()) {
+            for (ScheduledTask scheduledTask : scheduledTasks) {
+                if (scheduledTask.getTaskID() == taskId) {
+                    return scheduledTask;
+                }
+            }
+        }
+        return null;
+    }
+
 	public void allocateTaskToEmployee(Task task, Employee employee, int startTime, int endTime) {
 		ScheduledTask scheduledTask = new ScheduledTask(task, startTime, endTime);
 
