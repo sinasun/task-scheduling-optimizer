@@ -1,12 +1,12 @@
 package scheduling.algorithm;
 
 import employees.Employee;
+import scheduling.Scheduler;
 import tasks.Task;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class PriorityDueDateSchedulingAlgorithm implements SchedulingAlgorithm {
 	private Scheduler scheduler;
@@ -16,7 +16,7 @@ public class PriorityDueDateSchedulingAlgorithm implements SchedulingAlgorithm {
 	}
 	@Override
 	public void applyAlgorithm() {
-		ArrayList<Task> unscheduledTasks = scheduler.getUnscheduledTasks(scheduler.getTasks());
+		ArrayList<Task> unscheduledTasks = scheduler.getUnscheduledTasks();
 		int previousUnscheduledTaskCount = unscheduledTasks.size();
 		int unchangedTaskCount = 0;
 		int maxUnchangedTaskCount = 1; 
@@ -33,7 +33,7 @@ public class PriorityDueDateSchedulingAlgorithm implements SchedulingAlgorithm {
 			});
 
 			for (Task task : unscheduledTasks) {
-				if (task.getTaskDependencies().isEmpty()) {
+				if (task.getTaskDependencies() == 0) {
 					// Find the first available employee for the job type
 					Employee employee = scheduler.findFirstAvailableEmployeeForJobType(task.getEmployeeType());
 
@@ -45,7 +45,7 @@ public class PriorityDueDateSchedulingAlgorithm implements SchedulingAlgorithm {
 			}
 
 			// Update the list of unscheduled tasks after allocation
-			ArrayList<Task> newUnscheduledTasks = scheduler.getUnscheduledTasks(scheduler.getTasks());
+			ArrayList<Task> newUnscheduledTasks = scheduler.getUnscheduledTasks();
 
 			if (newUnscheduledTasks.size() == previousUnscheduledTaskCount) {
 				unchangedTaskCount++;
