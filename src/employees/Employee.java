@@ -38,7 +38,7 @@ public class Employee {
     }
 
     public int getFreeHoursInCurrentDay() {
-        return getFreeHoursInCurrentDay;
+        return freeHoursInCurrentDay;
     }
 
     public void setEmployeeID(int employeeID) {
