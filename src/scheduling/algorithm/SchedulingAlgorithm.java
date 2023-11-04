@@ -1,7 +1,8 @@
 package scheduling.algorithm;
 
+import scheduling.Scheduler;
+
 public interface SchedulingAlgorithm {
-    SchedulingAlgorithm(Scheduler scheduler);
 
     void applyAlgorithm();
 }
