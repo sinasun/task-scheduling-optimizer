@@ -43,7 +43,9 @@ public class Scheduler {
 
 		// remove from dependencies of other tasks
     	for (Task t : tasks) {
-        	t.getTaskDependencies().removeIf(depTask -> depTask.equals(task));
+        	if(t.getTaskDependencies() != 0) {
+				t.setTaskDependencies(0);
+			}
     	}
 
         int taskDuration = endTime - startTime;
@@ -80,7 +82,7 @@ public class Scheduler {
 		return null;
 	}
 
-	public ArrayList<Task> getUnscheduledTasks(ArrayList<Task> tasks) {
+	public ArrayList<Task> getUnscheduledTasks() {
 		ArrayList<Task> unscheduledTasks = new ArrayList<>(tasks);
 		for (ArrayList<ScheduledTask> scheduledTasks : employeeScheduledTasks.values()) {
 			for (ScheduledTask scheduledTask : scheduledTasks) {
