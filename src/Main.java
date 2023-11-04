@@ -2,23 +2,25 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 import employees.Employee;
-import scheduling.*;
+import scheduling.Scheduler;
 import scheduling.algorithm.PriorityDueDateSchedulingAlgorithm;
-import scheduling.SchedulingAlgorithm;
+import scheduling.algorithm.SchedulingAlgorithm;
 import tasks.Task;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Task> tasks = new ArrayList<>();
         ArrayList<Employee> employees = new ArrayList<>();
-        loadTasksAndEmployees("../data/tasks_list.csv", "../data/employees_list.csv", tasks, employees);
+        loadTasksAndEmployees("data/tasks_list.csv", "data/employees_list.csv", tasks, employees);
 
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
+        Scheduler scheduler = new Scheduler(tasks, employees);
         while (!exit) {
             System.out.println("Scheduling Algorithms Menu:");
             System.out.println("1. Apply Algorithm");
@@ -54,7 +56,12 @@ public class Main {
             String line;
 			taskReader.readLine();
             while ((line = taskReader.readLine()) != null) {
+
                 String[] data = line.split(",");
+                if (Objects.equals(data[4], "")){
+                    data[4] = "0";
+                }
+
                 Task task = new Task(Integer.parseInt(data[0]), data[1], data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]));
                 tasks.add(task);
             }
