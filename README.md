@@ -1,4 +1,4 @@
-# Production Scheduling Optimizer
+# Task Scheduling Optimizer
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
@@ -28,6 +28,7 @@ This project is a Task Scheduling System designed to help manage and optimize th
 ## Project Structure
 
 The project is organized into the following main components:
+
 - `scheduling`: Contains classes related to the scheduling system.
 - `tasks`: Contains classes related to task management.
 - `employees`: Contains classes for defining employee characteristics.
